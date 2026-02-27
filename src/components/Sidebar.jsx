@@ -6,6 +6,7 @@ import { FaSun, FaMoon, FaEdit, FaTrash } from 'react-icons/fa';
 import api from '../services/api';
 import toast from 'react-hot-toast';
 
+// This is the KEY part - using export default function
 export default function Sidebar({ conversations, onSelect, onNewChat, currentId }) {
   const { logout } = useAuth();
   const { darkMode, toggleDarkMode } = useTheme();
