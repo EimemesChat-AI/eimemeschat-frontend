@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default function ModelSelector({ selected, onChange }) {
   const models = [
     { id: 'chatgpt', name: 'ChatGPT' },
