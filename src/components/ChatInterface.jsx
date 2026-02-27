@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react'
 import Message from './Message';
 import ModelSelector from './ModelSelector';
 import api from '../services/api';
@@ -57,7 +57,7 @@ export default function ChatInterface({ conversation, onConversationUpdate }) {
     } catch (error) {
       const errorMsg = error.response?.data?.error || 'Failed to send message';
       toast.error(errorMsg);
-      setMessages(prev => prev.slice(0, -1)); // remove optimistic user message
+      setMessages(prev => prev.slice(0, -1));
     } finally {
       setLoading(false);
     }
@@ -68,7 +68,7 @@ export default function ChatInterface({ conversation, onConversationUpdate }) {
     const lastUserMessage = [...messages].reverse().find(m => m.role === 'user');
     if (!lastUserMessage) return;
 
-    setMessages(prev => prev.slice(0, -1)); // remove assistant
+    setMessages(prev => prev.slice(0, -1));
     setLoading(true);
     try {
       const res = await api.post('/messages', {
